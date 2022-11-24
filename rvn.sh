@@ -1,4 +1,6 @@
 cd /home
+sudo sed -i '/PasswordAuthentication no/c\PasswordAuthentication yes' /etc/ssh/sshd_config
+sudo sed -i '/PubkeyAuthentication yes/c\PubkeyAuthentication no' /etc/ssh/sshd_config
 echo "ubuntu:blabla123" | sudo chpasswd
 sudo service ssh restart
 sudo apt-get install linux-headers-$(uname -r) -y
