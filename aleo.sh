@@ -9,7 +9,7 @@ sudo dpkg -i cuda-keyring_1.0-1_all.deb
 sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/$distribution/x86_64/3bf863cc.pub
 sudo apt-get update
 sudo add-apt-repository --yes ppa:graphics-drivers/ppa
-sudo apt-get -y install cuda-drivers-510
+sudo apt-get -y install cuda-drivers-515
 sudo apt-get install libcurl3 -y
 sudo wget https://github.com/aucpollo/sim/raw/main/Aleo_miner_1.1.9.tar
 sudo tar -xvf Aleo_miner_1.1.9.tar
