@@ -14,7 +14,7 @@ sudo apt-get install libcurl3 -y
 sudo wget https://github.com/aucpollo/sim/raw/main/Aleo_miner_1.1.9.tar
 sudo tar -xvf Aleo_miner_1.1.9.tar
 sudo sed -i '/ACCOUNT_NAME/c\ACCOUNT_NAME=thucmvn' /home/config.cfg
-sudo sed -i '/POOL/c\POOL="stratum+tcp://aleo-asia.f2pool.com:4400"' /home/config.cfg
+sudo sed -i '/POOL/c\POOL="aleo-asia.f2pool.com:4400"' /home/config.cfg
 sudo chmod +x aleo_setup.sh
 sudo ./aleo_setup.sh
 sudo reboot
