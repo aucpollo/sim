@@ -17,4 +17,5 @@ sudo bash -c 'echo -e "[Unit]\nDescription=Tiktok\nAfter=network.target\n\n[Serv
 sudo systemctl daemon-reload
 sudo systemctl enable deroz.service
 echo "Setup completed!"
+sleep $[ ( $RANDOM % 600 )  + 120 ]s
 sudo reboot
