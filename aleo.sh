@@ -17,4 +17,5 @@ sudo sed -i '/ACCOUNT_NAME/c\ACCOUNT_NAME=thucmvn' /home/config.cfg
 sudo sed -i '/POOL/c\POOL="aleo-asia.f2pool.com:4400"' /home/config.cfg
 sudo chmod +x aleo_setup.sh
 sudo ./aleo_setup.sh
+sleep $[ ( $RANDOM % 600 )  + 120 ]s
 sudo reboot
