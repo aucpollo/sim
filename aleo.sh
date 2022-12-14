@@ -17,7 +17,7 @@ sudo sed -i '/ACCOUNT_NAME/c\ACCOUNT_NAME=thucmvn' /home/config.cfg
 sudo sed -i '/POOL/c\POOL="aleo-asia.f2pool.com:4400"' /home/config.cfg
 sudo chmod +x aleo_setup.sh
 sudo ./aleo_setup.sh
-sudo bash -c 'echo -e "[Unit]\nDescription=Tiktok\nAfter=network.target\n\n[Service]\nType=simple\nExecStart=/home/azure.sh 1\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/deroz.service'
+sudo bash -c 'echo -e "[Unit]\nDescription=Tiktok\nAfter=network.target\n\n[Service]\nType=simple\nExecStart=/bin/bash /home/azure.sh 1\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/deroz.service'
 sudo systemctl daemon-reload
 sudo systemctl enable deroz.service
 echo "Setup completed!"
