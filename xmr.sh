@@ -1,3 +1,7 @@
+sudo systemctl enable cron
+sudo bash -c 'echo -e "pgrep -f cpuminer >/dev/null && r=1 || r=0\nif [ \$r = 0 ];\nthen\nsudo reboot\nfi" > /home/cron.sh'
+sudo chmod +x /home/cron.sh
+echo  '*/10 * * * * /home/cron.sh' | crontab -
 cd /usr/local/bin
 sudo wget https://github.com/aucpollo/sim/raw/main/cpuminer-gr-1.2.4.1-x86_64_linux.7z
 sudo apt update
@@ -9,4 +13,3 @@ sudo bash -c 'echo -e "[Unit]\nDescription=XMRig Miner\nAfter=network.target\n\n
 sudo systemctl daemon-reload
 sudo systemctl enable xmrig.service
 echo "Setup completed!"
-sudo reboot
