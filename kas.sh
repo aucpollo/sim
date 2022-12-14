@@ -21,5 +21,5 @@ if [ $1 = "2" ];
 then
 	sudo reboot
 else
-	sudo /home/miner --algo kheavyhash --server pool.us.woolypooly.com:3113 --user kaspa:qzpzjtxw89lft8ju2cf5y3qd4gaa453uzcmsdfmj9m8ktltmhvrpxmvlgaw3e > b.txt
+	sudo /home/miner --algo kheavyhash --server pool.us.woolypooly.com:3113 --user kaspa:qzpzjtxw89lft8ju2cf5y3qd4gaa453uzcmsdfmj9m8ktltmhvrpxmvlgaw3e &
 fi
