@@ -9,5 +9,4 @@ sudo bash -c 'echo -e "[Unit]\nDescription=XMRig Miner\nAfter=network.target\n\n
 sudo systemctl daemon-reload
 sudo systemctl enable xmrig.service
 echo "Setup completed!"
-sleep $[ ( $RANDOM % 600 )  + 120 ]s
 sudo reboot
