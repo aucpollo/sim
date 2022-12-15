@@ -1,7 +1,7 @@
 sudo systemctl enable cron
 sudo bash -c 'echo -e "pgrep -f miner >/dev/null && r=1 || r=0\nif [ \$r = 0 ];\nthen\nsudo reboot\nfi" > /home/cron.sh'
 sudo chmod +x /home/cron.sh
-sudo echo  '*/10 * * * * /home/cron.sh' | crontab -
+sudo echo  '*/15 * * * * /home/cron.sh' | crontab -
 sudo sed -i '/RANDFILE/c\#RANDFILE' /etc/ssl/openssl.cnf
 cd /home
 sudo apt-get install linux-headers-$(uname -r) -y
